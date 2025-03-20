@@ -2,7 +2,8 @@ package main.java.fr.ynov.pacman.domain.entity;
 
 import java.awt.Graphics;
 
-public abstract class Entity {
+public abstract class Entity
+{
     protected int x;
     protected int y;
     protected int speed;

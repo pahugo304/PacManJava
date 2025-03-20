@@ -3,7 +3,8 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Graphics;
 import java.util.List;
 
-public abstract class Character extends Entity {
+public abstract class Character extends Entity
+{
     public Character(int x, int y, int speed) {
         super(x, y, speed);
     }
