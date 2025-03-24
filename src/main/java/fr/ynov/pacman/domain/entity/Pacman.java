@@ -3,6 +3,8 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.Rectangle;
+import java.util.List;
 
 public class Pacman extends Entity {
     private int lives = 3;
@@ -25,6 +27,29 @@ public class Pacman extends Entity {
             case NONE -> {}
         }
         animateMouth();
+    }
+
+    public boolean isCollidingWithWall(List<Wall> walls) {
+        int nextX = x;
+        int nextY = y;
+        
+        switch (direction) {
+            case UP -> nextY -= speed;
+            case DOWN -> nextY += speed;
+            case LEFT -> nextX -= speed;
+            case RIGHT -> nextX += speed;
+            case NONE -> {}
+        }
+
+        Rectangle pacmanBounds = new Rectangle(nextX, nextY, 20, 20);
+        
+        for (Wall wall : walls) {
+            Rectangle wallBounds = new Rectangle(wall.x, wall.y, wall.width, wall.height);
+            if (pacmanBounds.intersects(wallBounds)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void animateMouth() {
@@ -87,6 +112,22 @@ public class Pacman extends Entity {
         x = 300;
         y = 300;
         direction = Direction.NONE;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getLives() { return lives; }
