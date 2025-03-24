@@ -19,7 +19,7 @@ public class Ghost extends Enemy {
         this.chaseTime = 10;
     }
 
-    public void update() {
+    public void changeBehavior() {
         timer++;
     
         if (state == EnemyState.SCATTER && timer >= scatterTime * 60) {
