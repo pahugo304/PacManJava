@@ -3,6 +3,7 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
+import java.awt.Rectangle;
 
 public class Ghost extends Enemy {
     private Color color;
@@ -61,8 +62,27 @@ public class Ghost extends Enemy {
     }
 
     public boolean isCollidingWithWall(List<Wall> walls) {
+        Rectangle ghostBounds = new Rectangle(x, y, 20, 20);
+        
+        switch (state) {
+            case CHASE:
+                ghostBounds.x += (target.getX() > x) ? speed : -speed;
+                ghostBounds.y += (target.getY() > y) ? speed : -speed;
+                break;
+            case SCATTER:
+                ghostBounds.x += (Math.random() > 0.5 ? speed : -speed);
+                ghostBounds.y += (Math.random() > 0.5 ? speed : -speed);
+                break;
+            case FRIGHTENED:
+                ghostBounds.x += (Math.random() > 0.5 ? -speed : speed);
+                ghostBounds.y += (Math.random() > 0.5 ? -speed : speed);
+                break;
+        }
+        
         for (Wall wall : walls) {
-            if (wall.isColliding(this)) return true;
+            if (ghostBounds.intersects(wall.getBounds())) {
+                return true;
+            }
         }
         return false;
     }
