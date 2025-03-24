@@ -1,7 +1,8 @@
 package main.java.fr.ynov.pacman.domain.entity;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.Color;
 
 public class Wall {
     public int x;
@@ -16,11 +17,8 @@ public class Wall {
         this.height = height;
     }
 
-    public boolean isColliding(Entity entity) {
-        return entity.getX() < x + width &&
-               entity.getX() + 20 > x &&
-               entity.getY() < y + height &&
-               entity.getY() + 20 > y;
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
     }
 
     public void draw(Graphics g) {

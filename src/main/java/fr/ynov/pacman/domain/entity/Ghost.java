@@ -47,6 +47,16 @@ public class Ghost extends Enemy {
         }
     }
 
+    public EnemyState getState() {
+        return this.state;
+    }    
+
+    public void die() {
+        this.x = 50;
+        this.y = 50;
+        this.state = EnemyState.CHASE;
+    }
+
     public void scatter() {
         if (state == EnemyState.SCATTER) {
             x += (Math.random() > 0.5 ? speed : -speed);

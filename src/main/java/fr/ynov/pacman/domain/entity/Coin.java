@@ -3,15 +3,26 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Coin {
-    private int x;
-    private int y;
+public class Coin extends Entity {
     private boolean isEaten;
+    private static final int COIN_SIZE = 8;
+    private static final int COIN_OFFSET = 6;
 
     public Coin(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.isEaten = false;
+    }
+
+    @Override
+    public void move() {
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        if (!isEaten) {
+            g.setColor(Color.ORANGE);
+            g.fillOval(x + COIN_OFFSET, y + COIN_OFFSET, COIN_SIZE, COIN_SIZE);
+        }
     }
 
     public boolean isEaten() {
@@ -19,21 +30,6 @@ public class Coin {
     }
 
     public void setEaten(boolean eaten) {
-        this.isEaten = eaten;
-    }
-
-    public void draw(Graphics g) {
-        if (!isEaten) {
-            g.setColor(Color.ORANGE);
-            g.fillOval(x + 6, y + 6, 8, 8);
-        }
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+        isEaten = eaten;
     }
 }
