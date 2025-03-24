@@ -4,7 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Wall {
-    private int x, y, width, height;
+    public int x;
+    public int y;
+    public int width;
+    public int height;
 
     public Wall(int x, int y, int width, int height) {
         this.x = x;
