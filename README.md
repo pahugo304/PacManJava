@@ -21,8 +21,6 @@ A modern recreation of the classic **Pac-Man** game written in **Java** using **
 
 ![Class Diagram](pacman.drawio.png)
 
->  [Click here for interactive version](https://raw.githubusercontent.com/pahugo304/PacManJava/refs/heads/main/pacman.drawio.html)
-
 ---
 
 ##  Requirements
