@@ -1,38 +1,45 @@
 #  Pac-Man Clone (Java Swing)
 
-A simple Pac-Man game implemented in Java using the Swing GUI toolkit. This version includes ghosts with multiple AI states, walls, coins, and super coins.
+A modern recreation of the classic **Pac-Man** game written in **Java** using **Swing** for the GUI. This project includes moving ghosts with AI states, animated player movement, coins, walls, and game state management.
 
 ---
 
 ##  Features
 
-- Classic Pac-Man gameplay with:
-  - Player movement using arrow keys
-  - Animated mouth and eye
-  - Walls, coins, and super coins
-  - 4 ghost enemies (each with SCATTER, CHASE, and FRIGHTENED states)
-- Basic win/lose game states
-- Responsive and animated UI
+- Arrow key movement for Pac-Man
+- Animated mouth and eye
+- Ghosts with different AI states:
+  - `CHASE`, `SCATTER`, and `FRIGHTENED`
+- Super coins that make ghosts vulnerable
+- Lives, score, victory and game over conditions
+- Custom maze with walls, borders, and collectibles
+
+---
+
+##  Class Diagram
+
+[View the interactive class diagram](https://raw.githubusercontent.com/pahugo304/PacManJava/refs/heads/main/pacman.drawio.html)
 
 ---
 
 ##  Requirements
 
 - Java 17 or later
-- A Java IDE (like IntelliJ IDEA, Eclipse) **or** terminal with `javac` and `java`
+- IDE like IntelliJ or Eclipse (optional, but recommended)
+- Alternatively: terminal with `javac` and `java`
 
 ---
 
 ##  How to Run
 
-###  Compile and Launch from Terminal
+###  Compile & Run from Terminal
 
 ```bash
-# Navigate to src folder
+# Navigate to the source folder
 cd src
 
-# Compile all Java files
+# Compile all Java classes
 javac main/java/fr/ynov/pacman/**/*.java
 
-# Run the main class (replace with actual Main if different)
+# Run the main class
 java main.java.fr.ynov.pacman.main.Main
