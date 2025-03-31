@@ -9,19 +9,21 @@ public class GamePanel extends JPanel implements ActionListener {
     private final Game game;
     private final Timer timer;
 
-    public GamePanel() {
-        game = new Game(600, 600);
-        setPreferredSize(new Dimension(600, 600));
+    public GamePanel(int width, int height) {
+        game = new Game(width, height);
+        setPreferredSize(new Dimension(width, height));
         setBackground(Color.BLACK);
 
+        // Game loop (60 FPS)
         timer = new Timer(16, this);
         timer.start();
 
+        // Input handling
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 game.handleInput(e.getKeyCode());
-                requestFocus();
+                requestFocusInWindow();
             }
         });
         setFocusable(true);

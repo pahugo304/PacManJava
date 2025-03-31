@@ -1,18 +1,36 @@
 package main.java.fr.ynov.pacman.gui;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GameWindow extends JFrame {
+    private static final int WINDOW_WIDTH = 800;
+    private static final int WINDOW_HEIGHT = 800;
+
     public GameWindow() {
-        setTitle("Pacman");
+        setTitle("PAC-MAN");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         
-        GamePanel panel = new GamePanel();
-        add(panel);
+        // Start with menu
+        showStartMenu();
         
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private void showStartMenu() {
+        getContentPane().removeAll();
+        add(new StartPanel(e -> startGame()));
+        revalidate();
+    }
+
+    private void startGame() {
+        getContentPane().removeAll();
+        GamePanel gamePanel = new GamePanel(WINDOW_WIDTH, WINDOW_HEIGHT);
+        add(gamePanel);
+        gamePanel.requestFocusInWindow();
+        revalidate();
     }
 }
