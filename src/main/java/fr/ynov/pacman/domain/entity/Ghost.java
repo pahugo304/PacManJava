@@ -37,6 +37,11 @@ public class Ghost extends Enemy {
         this.state = newState;
     }
 
+
+    public void resetToStart() {
+        this.direction = Direction.LEFT;
+    }
+
     @Override
     public void chase(Pacman target) {
         if (state == EnemyState.CHASE) {
@@ -59,15 +64,15 @@ public class Ghost extends Enemy {
 
     public void scatter() {
         if (state == EnemyState.SCATTER) {
-            x += (Math.random() > 0.5 ? speed : -speed);
-            y += (Math.random() > 0.5 ? speed : -speed);
+            x += (Math.random() > 0.3 ? speed : -speed);
+            y += (Math.random() > 0.3 ? speed : -speed);
         }
     }
 
     public void decideNextMove() {
         if (state == EnemyState.FRIGHTENED) {
-            x += (Math.random() > 0.5 ? -speed : speed);
-            y += (Math.random() > 0.5 ? -speed : speed);
+            x += (Math.random() > 0.3 ? -speed : speed);
+            y += (Math.random() > 0.3 ? -speed : speed);
         }
     }
 
@@ -80,12 +85,12 @@ public class Ghost extends Enemy {
                 ghostBounds.y += (target.getY() > y) ? speed : -speed;
                 break;
             case SCATTER:
-                ghostBounds.x += (Math.random() > 0.5 ? speed : -speed);
-                ghostBounds.y += (Math.random() > 0.5 ? speed : -speed);
+                ghostBounds.x += (Math.random() > 0.2 ? speed : -speed);
+                ghostBounds.y += (Math.random() > 0.2 ? speed : -speed);
                 break;
             case FRIGHTENED:
-                ghostBounds.x += (Math.random() > 0.5 ? -speed : speed);
-                ghostBounds.y += (Math.random() > 0.5 ? -speed : speed);
+                ghostBounds.x += (Math.random() > 0.2 ? -speed : speed);
+                ghostBounds.y += (Math.random() > 0.2 ? -speed : speed);
                 break;
         }
         
