@@ -1,32 +1,34 @@
 #  Pac-Man Clone (Java Swing)
 
-A modern recreation of the classic **Pac-Man** game written in **Java** using **Swing** for the GUI. This project includes moving ghosts with AI states, animated player movement, coins, walls, and game state management.
+A modern recreation of the classic **Pac-Man** game written in **Java** using **Swing** for the GUI. This version features animated player movement, multiple ghost behaviors, collectible coins and super coins, and a complete game loop with win/loss states.
 
 ---
 
 ##  Features
 
-- Arrow key movement for Pac-Man
-- Animated mouth and eye
-- Ghosts with different AI states:
-  - `CHASE`, `SCATTER`, and `FRIGHTENED`
-- Super coins that make ghosts vulnerable
-- Lives, score, victory and game over conditions
-- Custom maze with walls, borders, and collectibles
+- Classic Pac-Man gameplay:
+  - Keyboard movement
+  - Animated mouth and eye
+  - 4 ghosts with AI states: `CHASE`, `SCATTER`, `FRIGHTENED`
+  - Super coins that make ghosts vulnerable
+- Coins, score, lives, and game over logic
+- Maze rendering with walls and collectibles
+- Game states: menu, playing, victory, game over
 
 ---
 
 ##  Class Diagram
 
-[View the interactive class diagram](https://raw.githubusercontent.com/pahugo304/PacManJava/refs/heads/main/pacman.drawio.html)
+![Class Diagram](pacman.drawio.png)
+
+>  [Click here for interactive version](https://raw.githubusercontent.com/pahugo304/PacManJava/refs/heads/main/pacman.drawio.html)
 
 ---
 
 ##  Requirements
 
 - Java 17 or later
-- IDE like IntelliJ or Eclipse (optional, but recommended)
-- Alternatively: terminal with `javac` and `java`
+- IDE (like IntelliJ / Eclipse) **or** command line setup with `javac` / `java`
 
 ---
 
@@ -35,11 +37,6 @@ A modern recreation of the classic **Pac-Man** game written in **Java** using **
 ###  Compile & Run from Terminal
 
 ```bash
-# Navigate to the source folder
 cd src
-
-# Compile all Java classes
 javac main/java/fr/ynov/pacman/**/*.java
-
-# Run the main class
 java main.java.fr.ynov.pacman.main.Main
