@@ -119,12 +119,25 @@ public class Game {
     }
 
     private void resetPositions() {
-        player.setX(maze.getWidth()/2);
-        player.setY(maze.getHeight()/2);
+        player.setX(maze.getWidth() / 2);
+        player.setY(maze.getHeight() / 2);
         player.setDirection(Direction.NONE);
+    
+        // RED ghost
+        ghosts.get(0).setX(100);
+        ghosts.get(0).setY(100);
         
-        ghosts.get(0).setX(100); ghosts.get(0).setY(100);
-        ghosts.get(1).setX(500); ghosts.get(1).setY(100);
+        // PINK ghost
+        ghosts.get(1).setX(600);
+        ghosts.get(1).setY(100);
+        
+        // CYAN ghost
+        ghosts.get(2).setX(100);
+        ghosts.get(2).setY(600);
+        
+        // ORANGE ghost
+        ghosts.get(3).setX(600);
+        ghosts.get(3).setY(600);
     }
 
     private void checkGameStatus() {
