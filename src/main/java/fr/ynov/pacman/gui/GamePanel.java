@@ -31,12 +31,14 @@ public class GamePanel extends JPanel implements ActionListener {
 
     @Override
     protected void paintComponent(Graphics g) {
+        // Draw game elements
         super.paintComponent(g);
         game.draw(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Update game state and refresh display
         game.update();
         repaint();
     }
