@@ -2,6 +2,7 @@ package main.java.fr.ynov.pacman.domain.entity;
 
 import java.awt.Graphics;
 
+// Base class for all game entities (Pac-Man, Ghosts, Coins, etc.)
 public abstract class Entity {
     protected int x;
     protected int y;
@@ -19,13 +20,15 @@ public abstract class Entity {
         this.direction = Direction.NONE;
     }
 
-    public abstract void move();
-    public abstract void draw(Graphics g);
+    public abstract void move();           // Entity movement logic
+    public abstract void draw(Graphics g); // Entity rendering logic
 
+    // Simple box-based collision detection
     public boolean isColliding(Entity other) {
         return Math.abs(x - other.x) < 20 && Math.abs(y - other.y) < 20;
     }
 
+    // Getters and setters
     public int getX() { return x; }
     public int getY() { return y; }
     public int getSpeed() { return speed; }

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.List;
 import java.awt.Rectangle;
 
+// Represents a ghost enemy in the game
 public class Ghost extends Enemy {
     private Color color;
     private Pacman target;
@@ -20,9 +21,9 @@ public class Ghost extends Enemy {
         this.chaseTime = 10;
     }
 
+    // Handles switching between chase and scatter modes
     public void changeBehavior() {
         timer++;
-    
         if (state == EnemyState.SCATTER && timer >= scatterTime * 60) {
             changeState(EnemyState.CHASE);
             timer = 0;
@@ -37,11 +38,12 @@ public class Ghost extends Enemy {
         this.state = newState;
     }
 
-
+    // Called when resetting the ghost after Pac-Man is eaten
     public void resetToStart() {
         this.direction = Direction.LEFT;
     }
 
+    // Movement logic when in CHASE state
     @Override
     public void chase(Pacman target) {
         if (state == EnemyState.CHASE) {
@@ -54,14 +56,16 @@ public class Ghost extends Enemy {
 
     public EnemyState getState() {
         return this.state;
-    }    
+    }
 
+    // Called when ghost is eaten
     public void die() {
         this.x = 50;
         this.y = 50;
         this.state = EnemyState.CHASE;
     }
 
+    // Random movement logic in SCATTER state
     public void scatter() {
         if (state == EnemyState.SCATTER) {
             x += (Math.random() > 0.3 ? speed : -speed);
@@ -69,6 +73,7 @@ public class Ghost extends Enemy {
         }
     }
 
+    // Random movement logic in FRIGHTENED state
     public void decideNextMove() {
         if (state == EnemyState.FRIGHTENED) {
             x += (Math.random() > 0.3 ? -speed : speed);
@@ -76,9 +81,10 @@ public class Ghost extends Enemy {
         }
     }
 
+    // Checks for upcoming wall collisions
     public boolean isCollidingWithWall(List<Wall> walls) {
         Rectangle ghostBounds = new Rectangle(x, y, 20, 20);
-        
+
         switch (state) {
             case CHASE:
                 ghostBounds.x += (target.getX() > x) ? speed : -speed;
@@ -93,7 +99,7 @@ public class Ghost extends Enemy {
                 ghostBounds.y += (Math.random() > 0.2 ? -speed : speed);
                 break;
         }
-        
+
         for (Wall wall : walls) {
             if (ghostBounds.intersects(wall.getBounds())) {
                 return true;

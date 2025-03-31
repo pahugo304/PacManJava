@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
+// Represents the Pac-Man player
 public class Pacman extends Entity {
     private int lives = 3;
     private int score = 0;
@@ -47,14 +48,14 @@ public class Pacman extends Entity {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.YELLOW);
-        
+
         int startAngle = switch (direction) {
             case RIGHT -> 30;
             case UP -> 120;
             case LEFT -> 210;
             case DOWN -> 300;
             case NONE -> 30;
-        };        
+        };
         g.fillArc(x, y, 20, 20, startAngle, 360 - mouthAngle);
         drawEye(g);
     }
@@ -96,22 +97,11 @@ public class Pacman extends Entity {
         direction = Direction.NONE;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
+    // Getters and setters
+    public Direction getDirection() { return direction; }
+    public int getSpeed() { return speed; }
+    public void setX(int x) { this.x = x; }
+    public void setY(int y) { this.y = y; }
     public int getLives() { return lives; }
     public int getScore() { return score; }
     public boolean isAlive() { return lives > 0; }

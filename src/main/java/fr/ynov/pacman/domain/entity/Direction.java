@@ -1,6 +1,6 @@
 package main.java.fr.ynov.pacman.domain.entity;
 
-public enum Direction
-{
+// Represents possible movement directions
+public enum Direction {
     UP, DOWN, LEFT, RIGHT, NONE
 }

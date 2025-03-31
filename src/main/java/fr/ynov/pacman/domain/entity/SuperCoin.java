@@ -3,6 +3,7 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 
+// Represents a Super Coin (power pellet) that activates a special effect
 public class SuperCoin extends Coin {
     private static final int SIZE = 12;
     private boolean activeEffect;
@@ -22,6 +23,7 @@ public class SuperCoin extends Coin {
         }
     }
 
+    // Triggers the effect and marks it as eaten
     public void activateEffect() {
         this.activeEffect = true;
         setEaten(true);

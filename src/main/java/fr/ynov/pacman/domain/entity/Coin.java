@@ -3,6 +3,7 @@ package main.java.fr.ynov.pacman.domain.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 
+// Coin entity eaten by Pac-Man
 public class Coin extends Entity {
     private boolean isEaten;
     private static final int COIN_SIZE = 8;
@@ -15,6 +16,7 @@ public class Coin extends Entity {
 
     @Override
     public void move() {
+        // Coins don’t move
     }
 
     @Override
